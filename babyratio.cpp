@@ -19,6 +19,9 @@ rational::rational (int n, int d) {
         nom = -n / gcd (n,-d);
         den = -d / gcd (n,-d);
     }
+    else {
+        nom = n / gcd (abst(n), d);
+        den = d / gcd (abst(n), d);
 }
 
 rational rational::add (rational r) {
