@@ -28,32 +28,32 @@ rational::rational (int n, int d) {
 rational rational::add (rational r) {
     int n = nom * r.den + r.nom * den;
     int d = den * r.den;
-    n /= gcd (n, d);
-    d /= gcd (n, d);
+    n /= gcd (abs(n), d);
+    d /= gcd (abs(n), d);
     return rational (n, d);
 }
 
 rational rational::sub (rational r) {
     int n = nom * r.den - r.nom * den;
     int d = den * r.den;
-    n /= gcd (n, d);
-    d /= gcd (n, d);
+    n /= gcd (abs(n), d);
+    d /= gcd (abs(n), d);
     return rational (n, d);
 }   
 
 rational rational::mul (rational r) {
     int n = nom * r.nom;
     int d = den * r.den;
-    n /= gcd (n, d);
-    d /= gcd (n, d);
+    n /= gcd (abs(n), d);
+    d /= gcd (abs(n), d);
     return rational (n, d);
 }
 
 rational rational::div (rational r) {
     int n = nom * r.den;
     int d = den * r.nom;
-    n /= gcd (n, d);
-    d /= gcd (n, d);
+    n /= gcd (abs(n), d);
+    d /= gcd (abs(n), d);
     return rational (n, d);
 }
 
