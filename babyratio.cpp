@@ -32,8 +32,8 @@ rational::rational (int n, int d) {
 }
 
 rational rational::add (rational r) {
-    nom = nom * r.den + r.nom * den;
-    den = den * r.den;
+    int n = nom * r.den + r.nom * den;
+    int d = den * r.den;
     return rational (n, d);
 }
 
