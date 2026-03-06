@@ -50,7 +50,7 @@ friend ostream & operator << (ostream &out, const stack &s) {
     for (int i = 0; i < s.top; i++) {
         out << s.arr[i] << ", ";
     }
-    out << "]" << endl;
+    out << "]";
     return out;
 }
 private:
