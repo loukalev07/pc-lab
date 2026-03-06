@@ -28,34 +28,34 @@ rational::rational (int n, int d) {
 }
 
 rational rational::add (rational r) {
-    int n = nom * r.den + r.nom * den;
-    int d = den * r.den;
-    n /= gcd (abs(n), d);
-    d /= gcd (abs(n), d);
+    nom = nom * r.den + r.nom * den;
+    den = den * r.den;
+    int n = nom / gcd (abs(nom), den);
+    int d = den / gcd (abs(nom), den);
     return rational (n, d);
 }
 
 rational rational::sub (rational r) {
-    int n = nom * r.den - r.nom * den;
-    int d = den * r.den;
-    n /= gcd (abs(n), d);
-    d /= gcd (abs(n), d);
+    nom = nom * r.den - r.nom * den;
+    den = den * r.den;
+    int n = nom / gcd (abs(nom), den);
+    int d = den / gcd (abs(nom), den);
     return rational (n, d);
 }   
 
 rational rational::mul (rational r) {
-    int n = nom * r.nom;
-    int d = den * r.den;
-    n /= gcd (abs(n), d);
-    d /= gcd (abs(n), d);
+    nom = nom * r.nom;
+    den = den * r.den;
+    int n = nom / gcd (abs(nom), den);
+    int d = den / gcd (abs(nom), den);
     return rational (n, d);
 }
 
 rational rational::div (rational r) {
-    int n = nom * r.den;
-    int d = den * r.nom;
-    n /= gcd (abs(n), d);
-    d /= gcd (abs(n), d);
+    nom = nom * r.den;
+    den = den * r.nom;
+    int n = nom / gcd (abs(nom), den);
+    int d = den / gcd (abs(nom), den);
     return rational (n, d);
 }
 
