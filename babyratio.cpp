@@ -11,8 +11,14 @@ int rational::gcd (int a, int b) {
 }
 
 rational::rational (int n, int d) {
-    nom = n;
-    den = d;
+    if (n < 0 && d < 0) {
+        nom = -n / gcd (-n, -d);
+        den = -d / gcd (-n, -d);
+    }
+    else if (d<0 && n>=0) {
+        nom = -n / gcd (n,-d);
+        den = -d / gcd (n,-d);
+    }
 }
 
 rational rational::add (rational r) {
