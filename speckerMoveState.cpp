@@ -24,7 +24,7 @@ public:
 
     friend ostream & operator << (ostream &out, const Move &move) {
         out << "takes " << move.scoins << " coins from heap " << move.sheap << " and puts ";
-        if (move.tcoins == 0) out << "nothing" << endl;
+        if (move.tcoins == 0) out << "nothing";
         else out << move.tcoins << " coins to heap " << move.theap;
         return out;
     }
