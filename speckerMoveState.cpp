@@ -60,7 +60,7 @@ public:
                     throw logic_error("Invalid number of coins to take");
 
         }         
-        if (move.getTargetCoins() < 0 || move.getTargetCoins() > move.getSourceCoins()) {
+        if (move.getTargetCoins() < 0 || move.getTargetCoins() >= move.getSourceCoins()) {
                     throw logic_error("Invalid number of coins to put");
         }
         coins[move.getSource()] -= move.getSourceCoins();
