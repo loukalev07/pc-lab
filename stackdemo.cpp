@@ -3,24 +3,24 @@
 using namespace std;
 
 template <typename T>
-class stack {
+class Stack {
 public:
-    stack (int size): Size(size), top(-1) {
-        arr = new T[size];
+    Stack (int size): cap(size), top(-1) {
+        arr = new T[cap];
     }
 
-    stack (const stack &s) : Size(s.Size), top(s.top) {
-        arr = new T[Size];
+    Stack (const Stack &s) : cap(s.cap), top(s.top) {
+        arr = new T[cap];
         for (int i = 0; i <= s.top; i++) {
             arr[i] = s.arr[i];
         }
     }
 
-    ~stack () {
+    ~Stack () {
         delete[] arr;
     }
 
-    const stack & operator = (const stack &s) {
+    const Stack & operator = (const Stack &s) {
         for (int i = 0; i <= s.top; i++) {
             arr[i] = s.arr[i];
         }
@@ -42,20 +42,24 @@ public:
     }
 
     int size () {
-        return Size;
+        return (top + 1);
     }
 
-friend ostream & operator << (ostream &out, const stack &s) {
+friend ostream & operator << (ostream &out, const Stack &s) {
     out << "[";
     for (int i = 0; i < s.top; i++) {
         out << s.arr[i] << ", ";
     }
-    out << s.arr[s.top] << "]";
+    if (s.top > -1) {
+        out << s.arr[s.top];
+    }
+    out << "]";
     return out;
 }
 private:
     int top;
-    int Size;
+    int cap;
     T* arr;
 };
+
 
