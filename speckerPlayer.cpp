@@ -1,5 +1,4 @@
 #include <iostream>
-#include "speckerMoveState.cpp"
 
 class Player {
 public:
